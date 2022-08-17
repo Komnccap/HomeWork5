@@ -86,6 +86,15 @@ void task38()
         double[] array = new double[size];
         FillArrayDouble(array, 1000 , 100000);
         PrintArrayDouble(array);
+
+        double max = array[0];
+        double min = array[0];
+        for ( int i = 1; i < array.Length; i++)
+        {
+            if(array[i] > max) max = array[i];
+            else if( array[i] < min) min = array[i];
+        }
+        Console.WriteLine($"Разница между минимальным элементом {min}  и максимальным {max} равна {max - min}");
     }
 
     void FillArrayDouble(double[] array, int startnumber = -10, int finishNumber = 10)
@@ -94,7 +103,7 @@ void task38()
         Random random = new Random();
         for (int i = 0; i < array.Length; i++)
         {
-            array[i] = random.NextDouble() * 10 - 5;
+            array[i] = Math.Round(random.NextDouble() * 10 - 5, 3);
         }
     }
 
